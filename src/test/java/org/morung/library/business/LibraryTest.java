@@ -42,7 +42,6 @@ class LibraryTest {
 
         library.add(book1);
         library.add(book2);
-        List<Book> books = library.getBooks();
         Book searchedBook = library.searchByTitle("title1");
         assertEquals(book1.getTitle(), "title1");
 
