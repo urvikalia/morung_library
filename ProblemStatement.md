@@ -19,6 +19,9 @@ This is a console-based application that should showcase your understanding of o
 1. As of now all of the functionaliy is implemented in the library system , it has all of the functions
 As the actors , librarian and as an member the actions are not implemented, I have some idea as to how we can implement 
 that but will want for the phase 2 completion and then come back to it. [TODO]
+2. Defined an interface named Librarian with given two functions, but the LibrarySystem needs to implement librarian 
+but that sounds logically incorrect.Technically it should be a librarian having access to librarySystem. Still not very clear on this. Need to ponder and get clarity
+
 
 
 ## Forward thinking (Possible future enhancements)
