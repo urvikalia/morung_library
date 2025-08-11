@@ -1,7 +1,8 @@
 package org.morung.library.business;
 
 import org.morung.library.exceptions.NoDataFoundException;
-import org.morung.library.models.Book;
+
+import org.morung.library.models.LibraryItem;
 import org.morung.library.models.User;
 
 import java.util.ArrayList;
@@ -17,20 +18,20 @@ public class LibrarySystem {
         this.members = new ArrayList<>();
     }
 
-    public boolean addBook(Book book) {
+    public boolean addBook(LibraryItem book) {
         return (library.add(book));
     }
 
-    public Book searchBookByTitle(String title) {
+    public LibraryItem searchBookByTitle(String title) {
 
-        Book book = library.searchByTitle(title);
+        LibraryItem book = library.searchByTitle(title);
         if (book == null)
             throw new NoDataFoundException("No book found with title " + title);
         return book;
     }
 
-    public List<Book> searchBookByAuthor(String author) {
-       List<Book> books = library.searchByAuthor(author);
+    public List<LibraryItem> searchBookByAuthor(String author) {
+       List<LibraryItem> books = library.searchByAuthor(author);
         if (books.isEmpty())
             throw new NoDataFoundException("No book found with author " + author);
         return books;

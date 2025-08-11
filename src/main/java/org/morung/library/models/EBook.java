@@ -2,18 +2,16 @@ package org.morung.library.models;
 
 import java.time.LocalDate;
 
-public class Book extends LibraryItem {
+public class EBook extends LibraryItem {
 
-
-    public Book(String ISBN, String title, String author, String publisher, LocalDate publishedDate) {
+    public EBook(String ISBN, String title, String author, String publisher, LocalDate publishedDate) {
         super(ISBN, title, author, publisher, publishedDate);
-        CHECKOUT_DAYS = 15;
-
+        CHECKOUT_DAYS = 30;
     }
 
     @Override
     public String toString() {
-        return "Book{" +
+        return "EBook{" +
                 "ISBN='" + getISBN() + '\'' +
                 ", title='" + getTitle() + '\'' +
                 ", author='" + getAuthor() + '\'' +
@@ -26,5 +24,3 @@ public class Book extends LibraryItem {
                 '}';
     }
 }
-
-

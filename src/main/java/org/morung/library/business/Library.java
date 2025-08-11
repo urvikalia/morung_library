@@ -1,39 +1,38 @@
 package org.morung.library.business;
-
-import org.morung.library.models.Book;
+import org.morung.library.models.LibraryItem;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Library {
 
-    private List<Book> books;
+    private List<LibraryItem> items;
 
-    public List<Book> getBooks() {
-        return books;
+    public List<LibraryItem> getItems() {
+        return items;
     }
 
-   public boolean add(Book book) {
-        return(this.books.add(book));
+   public boolean add(LibraryItem book) {
+        return(this.items.add(book));
    }
 
     public Library() {
-        this.books = new ArrayList<>();
+        this.items = new ArrayList<>();
     }
 
-    public Book searchByTitle(String title) {
-        for (Book book : books) {
-            if(book.getTitle().equals(title)) {
+    public LibraryItem searchByTitle(String title) {
+        for (LibraryItem book : getItems()) {
+            if(book.getTitle().equalsIgnoreCase(title)) {
                 return book;
             }
         }
         return null;
    }
-   public List<Book> searchByAuthor(String author) {
-        List<Book> books = new ArrayList<>();
+   public List<LibraryItem> searchByAuthor(String author) {
+        List<LibraryItem> books = new ArrayList<>();
 
-        for(Book book : books) {
-            if(author.equals(book.getAuthor())) {
+        for(LibraryItem book : getItems()) {
+            if(author.equalsIgnoreCase(book.getAuthor())) {
                 books.add(book);
             }
         }

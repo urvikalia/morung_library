@@ -21,9 +21,10 @@ As the actors , librarian and as an member the actions are not implemented, I ha
 that but will want for the phase 2 completion and then come back to it. [TODO]
 2. Defined an interface named Librarian with given two functions, but the LibrarySystem needs to implement librarian 
 but that sounds logically incorrect.Technically it should be a librarian having access to librarySystem. Still not very clear on this. Need to ponder and get clarity
+3. Again a counter argument is , librarian will be using this system to add books and members. So might not want to implement it but in some sense its getting impelmented and should be a acceptable solution and reasoning 
+Conclusion : I don't create a Librarian but the functionality is implemented via LibrarySystem. 
 
-
-
+   
 ## Forward thinking (Possible future enhancements)
 1. Search Optimization 
 2. Access rules
