@@ -9,10 +9,18 @@ public class BookHistory {
     private Date borrowedOn;
     private Date returnedOn;
 
-    public BookHistory(long userId, long bookId, Date borrowedOn, Date returnedOn) {
+    public BookHistory(long userId, long bookId, Date borrowedOn) {
         this.userId = userId;
         this.bookId = bookId;
         this.borrowedOn = borrowedOn;
+        this.returnedOn = null;
+    }
+
+    public void setReturnedOn(Date returnedOn) {
         this.returnedOn = returnedOn;
+    }
+
+    public Date getReturnedOn() {
+        return returnedOn;
     }
 }
