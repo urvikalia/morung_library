@@ -2,17 +2,17 @@ package org.morung.library.models;
 
 import java.util.Date;
 
-public class BookHistory {
+public class ItemHistory {
 
-    private long userId;
-    private long bookId;
+    private long itemId;
     private Date borrowedOn;
+    private Date expectedReturnedDate;
     private Date returnedOn;
 
-    public BookHistory(long userId, long bookId, Date borrowedOn) {
-        this.userId = userId;
-        this.bookId = bookId;
+    public ItemHistory(long itemId, Date borrowedOn, Date expectedReturnedDate) {
+        this.itemId = itemId;
         this.borrowedOn = borrowedOn;
+        this.expectedReturnedDate = expectedReturnedDate;
         this.returnedOn = null;
     }
 
@@ -22,5 +22,13 @@ public class BookHistory {
 
     public Date getReturnedOn() {
         return returnedOn;
+    }
+
+    public Date getExpectedReturnedDate() {
+        return expectedReturnedDate;
+    }
+
+    public long getItemId() {
+        return itemId;
     }
 }

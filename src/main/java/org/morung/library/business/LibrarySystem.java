@@ -43,6 +43,34 @@ public class LibrarySystem {
         return members.add(user);
     }
 
+    public boolean checkoutItem(long itemId,long userId) {
+        // find the item with the itemId .
+        // find the member with userId
+        // if Item not thrown exception with msg as Item not available currently
+        // update book being nonavailable
+        // add it in borrowing history of the given user
+
+        return true;
+
+    }
+
+    public boolean returnItem(long itemId, long userId)
+    {
+        //validate input - item is borrowable , currently in borrowing list with returnDate =null
+        // update borrowing history for the user - update return date
+        // and mark the book available in the library
+
+        return true;
+    }
+
+    public boolean renewalItem(long itemId, long userId) {
+        // validate input - if Item is renewable , is currently borrowed
+        // update borrowing history with expected return date :
+        return true;
+    }
+
+
+
 
 
 }

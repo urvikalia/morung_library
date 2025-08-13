@@ -1,4 +1,4 @@
 package org.morung.library.models;
 
-public class Borrowable {
+public interface Borrowable {
 }

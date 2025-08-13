@@ -4,8 +4,13 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicLong;
 
 public abstract class LibraryItem {
+
+    private static final AtomicLong itemIdGenerator = new AtomicLong(1);
+
+    private long itemId;
     private String ISBN;
     private String title;
     private String author;
@@ -58,6 +63,7 @@ public abstract class LibraryItem {
     }
 
     public LibraryItem(String ISBN, String title, String author, String publisher, LocalDate publishedDate) {
+        this.itemId = itemIdGenerator.getAndIncrement();
         this.ISBN = ISBN;
         this.title = title;
         this.author = author;

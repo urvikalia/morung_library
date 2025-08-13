@@ -2,7 +2,7 @@ package org.morung.library.models;
 
 import java.time.LocalDate;
 
-public class Book extends LibraryItem implements Renewable{
+public class Book extends LibraryItem implements Renewable,Borrowable{
 
 
     public Book(String ISBN, String title, String author, String publisher, LocalDate publishedDate) {

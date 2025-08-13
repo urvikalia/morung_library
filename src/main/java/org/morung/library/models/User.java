@@ -2,8 +2,8 @@ package org.morung.library.models;
 
 import org.morung.library.exceptions.InvalidInputException;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class User {
 
@@ -16,7 +16,7 @@ public class User {
     private long MAX_LOAN_PERIOD= 10;
 
 
-    private List<BookHistory> borrowingHistory;
+    private Map<Long, ItemHistory> borrowingHistory;
 
     public User(String name, String address, String email, String phoneNumber, long age) {
 
@@ -30,15 +30,16 @@ public class User {
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.age = age;
-        borrowingHistory = new ArrayList<>();
+        borrowingHistory = new HashMap<>();
     }
 
-    public List<BookHistory> getBorrowingHistory() {
-        return borrowingHistory;
+    public ItemHistory getBorrowingDetails(long itemId) {
+        return borrowingHistory.get(itemId);
+
     }
 
-    public void addBorrowingHistory(BookHistory bookHistory) {
-        this.borrowingHistory.add(bookHistory);
+    public void addBorrowingHistory(ItemHistory bookHistory) {
+        this.borrowingHistory.put(bookHistory.getItemId(),bookHistory);
     }
 
     private boolean validate(String name, String address, String email, String phoneNumber, long age) {
@@ -57,4 +58,6 @@ public class User {
     protected void set_MAX_LOAN_PERIOD(long MAX_LOAN_PERIOD) {
         this.MAX_LOAN_PERIOD = MAX_LOAN_PERIOD;
     }
+
+
 }
