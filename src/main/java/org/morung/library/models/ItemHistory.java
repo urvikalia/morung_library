@@ -36,4 +36,14 @@ public class ItemHistory {
     public void setExpectedReturnedDate(LocalDate expectedReturnedDate) {
         this.expectedReturnedDate = expectedReturnedDate;
     }
+
+    @Override
+    public String toString() {
+        return "ItemHistory{" +
+                "itemId=" + itemId +
+                ", borrowedOn=" + borrowedOn +
+                ", expectedReturnedDate=" + expectedReturnedDate +
+                ", returnedOn=" + returnedOn +
+                '}';
+    }
 }

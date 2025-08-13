@@ -78,7 +78,9 @@ public class Main {
                     String phoneNumber = scanner.next();
                     System.out.println("Enter age");
                     long age = scanner.nextLong();
-                    boolean isCreated = librarySystem.registerUser(userName, address, email, phoneNumber, age);
+                    System.out.println("Enter user type (REGULAR, STUDENT, SENIOR_CITIZEN)");
+                    String userType = scanner.next();
+                    boolean isCreated = librarySystem.registerUser(userName, address, email, phoneNumber, age,userType);
                     if (isCreated)
                         System.out.println("User registered successfully!");
                     else

@@ -2,15 +2,10 @@ package org.morung.library.business;
 
 import org.morung.library.exceptions.InvalidInputException;
 import org.morung.library.exceptions.NoDataFoundException;
-
-import org.morung.library.models.Borrowable;
-import org.morung.library.models.ItemHistory;
-import org.morung.library.models.LibraryItem;
-import org.morung.library.models.User;
+import org.morung.library.models.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class LibrarySystem {
@@ -42,9 +37,27 @@ public class LibrarySystem {
         return books;
     }
 
-    public boolean registerUser(String userName, String address, String email, String phoneNumber, long age) {
+    public User CreateUser(String userName, String address, String email, String phoneNumber, long age,String userType)
+    {
+        UserType type =UserType.valueOf(userType);
+        switch (type)
+        {
+            case REGULAR -> {
+            return new RegularUser(userName, address, email, phoneNumber, age);
+        }
+            case STUDENT -> {
+                return new Student(userName, address, email, phoneNumber, age);
+            }
+            case SENIOR_CITIZEN -> {
+                return new SeniorCitizen(userName, address, email, phoneNumber, age);
+            }
 
-        User user = new User(userName, address, email, phoneNumber, age);
+        }
+        throw new InvalidInputException("Invalid user type");
+    }
+    public boolean registerUser(String userName, String address, String email, String phoneNumber, long age,String userType) {
+
+        User user = CreateUser(userName, address, email, phoneNumber, age, userType);
         return members.add(user);
     }
 
@@ -54,6 +67,14 @@ public class LibrarySystem {
                 return user;
         }
         return null;
+    }
+
+    public User getUser(String userName) {
+        for (User user : members) {
+            if(userName.equalsIgnoreCase(user.getUserName()))
+                return user;
+        }
+        throw new NoDataFoundException("No user found with name " + userName);
     }
 
     private void updateAvailableStatus(LibraryItem item) {
@@ -71,7 +92,7 @@ public class LibrarySystem {
 
     private void validateMember(User user, long userId) {
         if (user == null) {
-            throw new InvalidInputException("No user found with id " + userId);
+            throw new NoDataFoundException("No user found with id " + userId);
         }
     }
 
@@ -81,14 +102,14 @@ public class LibrarySystem {
             throw new NoDataFoundException("No item borrowed by the give userid:  " + userId + " and itemid: " + itemId);
         }
         if (itemHistory.getReturnedOn() != null) {
-            throw new InvalidInputException("The given item is already returned");
+            throw new NoDataFoundException("The given item is already returned");
         }
     }
 
     private void validateIfBorrowable(LibraryItem libraryItem)
     {
         if (!(libraryItem instanceof Borrowable)) {
-            throw new InvalidInputException("The given item is not Borrowable");
+            throw new NoDataFoundException("The given item is not Borrowable");
         }
     }
 

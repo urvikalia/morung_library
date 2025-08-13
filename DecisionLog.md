@@ -34,4 +34,4 @@ for following reasons:
 There are three layers of validation
 * Presentation layer : prevent bad input from entering the system. using Javax validation or custom validation. usually inside rest controller
 * Domain Layer/ service layer: enforce business policies . e.g. age > 18 etc   
-* Entity Layer : protects domain integrity. e.g. user should not be created with null name, usually done inside the construtor or factory method 
+* Entity Layer : protects domain integrity. e.g. user should not be created with null name, usually done inside the constructor or factory method 

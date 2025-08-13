@@ -8,7 +8,7 @@ import java.util.Map;
 public class User {
 
     private long userId;
-    private String name;
+    private String userName;
     private String address;
     private String email;
     private String phoneNumber;
@@ -25,7 +25,7 @@ public class User {
         if (!isValid)
             throw new InvalidInputException("Invalid input. User not added to the system");
 
-        this.name = name;
+        this.userName = name;
         this.address = address;
         this.email = email;
         this.phoneNumber = phoneNumber;
@@ -61,5 +61,13 @@ public class User {
 
     public long getUserId() {
         return userId;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getUserName() {
+        return userName;
     }
 }
