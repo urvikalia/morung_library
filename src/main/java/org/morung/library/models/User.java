@@ -51,7 +51,7 @@ public class User {
         return true;
     }
 
-    protected long get_MAX_LOAN_PERIOD() {
+    public long get_MAX_LOAN_PERIOD() {
         return MAX_LOAN_PERIOD;
     }
 
@@ -59,5 +59,7 @@ public class User {
         this.MAX_LOAN_PERIOD = MAX_LOAN_PERIOD;
     }
 
-
+    public long getUserId() {
+        return userId;
+    }
 }

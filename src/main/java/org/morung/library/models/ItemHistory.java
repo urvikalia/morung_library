@@ -1,34 +1,39 @@
 package org.morung.library.models;
 
-import java.util.Date;
+import java.time.LocalDate;
+
 
 public class ItemHistory {
 
     private long itemId;
-    private Date borrowedOn;
-    private Date expectedReturnedDate;
-    private Date returnedOn;
+    private LocalDate borrowedOn;
+    private LocalDate expectedReturnedDate;
+    private LocalDate returnedOn;
 
-    public ItemHistory(long itemId, Date borrowedOn, Date expectedReturnedDate) {
+    public ItemHistory(long itemId, LocalDate borrowedOn, LocalDate expectedReturnedDate) {
         this.itemId = itemId;
         this.borrowedOn = borrowedOn;
         this.expectedReturnedDate = expectedReturnedDate;
         this.returnedOn = null;
     }
 
-    public void setReturnedOn(Date returnedOn) {
+    public void setReturnedOn(LocalDate returnedOn) {
         this.returnedOn = returnedOn;
     }
 
-    public Date getReturnedOn() {
+    public LocalDate getReturnedOn() {
         return returnedOn;
     }
 
-    public Date getExpectedReturnedDate() {
+    public LocalDate getExpectedReturnedDate() {
         return expectedReturnedDate;
     }
 
     public long getItemId() {
         return itemId;
+    }
+
+    public void setExpectedReturnedDate(LocalDate expectedReturnedDate) {
+        this.expectedReturnedDate = expectedReturnedDate;
     }
 }

@@ -62,6 +62,14 @@ public abstract class LibraryItem {
             return available_status ? "True" : "False";
     }
 
+    public long getItemId() {
+        return itemId;
+    }
+
+    public void setAvailable_status(boolean available_status) {
+        this.available_status = available_status;
+    }
+
     public LibraryItem(String ISBN, String title, String author, String publisher, LocalDate publishedDate) {
         this.itemId = itemIdGenerator.getAndIncrement();
         this.ISBN = ISBN;

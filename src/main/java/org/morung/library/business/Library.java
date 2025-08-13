@@ -39,4 +39,12 @@ public class Library {
         return books;
    }
 
+   public LibraryItem searchById(long itemId) {
+        for(LibraryItem item : getItems()) {
+            if(itemId ==item.getItemId())
+                return item;
+        }
+        return null;
+   }
+
 }
