@@ -2,12 +2,12 @@ package org.morung.library.models;
 
 import java.time.LocalDate;
 
-public class Book extends LibraryItem {
+public class Book extends LibraryItem implements Renewable{
 
 
     public Book(String ISBN, String title, String author, String publisher, LocalDate publishedDate) {
         super(ISBN, title, author, publisher, publishedDate);
-        CHECKOUT_DAYS = 15;
+        MAX_LOAN_PERIOD = 10;
 
     }
 
@@ -22,7 +22,7 @@ public class Book extends LibraryItem {
                 ", genre=" + getGenre() + '\'' +
                 ", available_status=" + getAvailableStatus() + +'\'' +
                 ", literary_period='" + getLiterary_period() + '\'' +
-                ", CHECKOUT_DAYS=" + CHECKOUT_DAYS +
+                ", MAX_LOAN_PERIOD=" + MAX_LOAN_PERIOD +
                 '}';
     }
 }

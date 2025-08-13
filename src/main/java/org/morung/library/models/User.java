@@ -13,6 +13,7 @@ public class User {
     private String email;
     private String phoneNumber;
     private long age;
+    private long MAX_LOAN_PERIOD= 10;
 
 
     private List<BookHistory> borrowingHistory;
@@ -47,5 +48,13 @@ public class User {
         if (age <= 0)
             return false;
         return true;
+    }
+
+    protected long get_MAX_LOAN_PERIOD() {
+        return MAX_LOAN_PERIOD;
+    }
+
+    protected void set_MAX_LOAN_PERIOD(long MAX_LOAN_PERIOD) {
+        this.MAX_LOAN_PERIOD = MAX_LOAN_PERIOD;
     }
 }

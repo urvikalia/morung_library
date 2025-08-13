@@ -2,11 +2,11 @@ package org.morung.library.models;
 
 import java.time.LocalDate;
 
-public class EBook extends LibraryItem {
+public class EBook extends LibraryItem implements ImmediateAccess{
 
     public EBook(String ISBN, String title, String author, String publisher, LocalDate publishedDate) {
         super(ISBN, title, author, publisher, publishedDate);
-        CHECKOUT_DAYS = 30;
+        MAX_LOAN_PERIOD = -1;
     }
 
     @Override
@@ -20,7 +20,7 @@ public class EBook extends LibraryItem {
                 ", genre=" + getGenre() + '\'' +
                 ", available_status=" + getAvailableStatus() + +'\'' +
                 ", literary_period='" + getLiterary_period() + '\'' +
-                ", CHECKOUT_DAYS=" + CHECKOUT_DAYS +
+                ", CHECKOUT_DAYS=" + MAX_LOAN_PERIOD +
                 '}';
     }
 }

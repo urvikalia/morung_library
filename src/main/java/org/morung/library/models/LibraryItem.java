@@ -1,7 +1,6 @@
 package org.morung.library.models;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 import java.util.List;
@@ -15,7 +14,7 @@ public abstract class LibraryItem {
     private List<String> genre;
     private boolean available_status = true;
     private String literary_period;
-    long CHECKOUT_DAYS = 10;
+    long MAX_LOAN_PERIOD = 10;
 
     public String getTitle() {
         return title;
@@ -49,8 +48,8 @@ public abstract class LibraryItem {
         return literary_period;
     }
 
-    public long getCHECKOUT_DAYS() {
-        return CHECKOUT_DAYS;
+    public long getMAX_LOAN_PERIOD() {
+        return MAX_LOAN_PERIOD;
     }
 
     public String getAvailableStatus()
