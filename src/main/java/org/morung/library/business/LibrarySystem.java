@@ -12,10 +12,12 @@ public class LibrarySystem {
 
     private Library library;
     private List<User> members;
+    private List<Transaction> transactions;
 
     public LibrarySystem() {
         this.library = new Library();
         this.members = new ArrayList<>();
+        this.transactions = new ArrayList<>();
     }
 
     public boolean addBook(LibraryItem book) {
@@ -133,6 +135,7 @@ public class LibrarySystem {
         updateAvailableStatus(libraryItem);
         borrower.addBorrowingHistory(itemHistory);
 
+        logTransaction(TransactionType.CHECKOUT,userId,itemId);
         return true;
 
     }
@@ -149,6 +152,8 @@ public class LibrarySystem {
         itemHistory.setReturnedOn(LocalDate.now());
         LibraryItem libraryItem = library.searchById(itemId);
         libraryItem.setAvailable_status(true);
+
+        logTransaction(TransactionType.RETURN,userId,itemId);
 
         return true;
     }
@@ -169,7 +174,21 @@ public class LibrarySystem {
         LocalDate expectedReturnDate = getExpectedReturnDate(LocalDate.now(), borrower);
         itemHistory.setExpectedReturnedDate(expectedReturnDate);
 
+        logTransaction(TransactionType.RENEWAL,userId,itemId);
+
         return true;
+    }
+
+    public List<Transaction> getTransactions() {
+        return transactions;
+    }
+    private void addTransaction(Transaction transaction) {
+        transactions.add(transaction);
+    }
+
+    private void logTransaction(TransactionType transactionType, long userId,long itemId) {
+        Transaction transaction = new Transaction(transactionType, userId, itemId);
+        addTransaction(transaction);
     }
 
 

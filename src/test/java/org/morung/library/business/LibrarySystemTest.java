@@ -59,6 +59,10 @@ class LibrarySystemTest {
         assertNotNull(history.getExpectedReturnedDate());
         System.out.println("Checkout Book");
         System.out.println(history.toString());
+
+        assertEquals(1, librarySystem.getTransactions().size());
+        Transaction transaction =librarySystem.getTransactions().get(0);
+        assertEquals(transaction.getType(), TransactionType.CHECKOUT);
     }
 
     @Test
@@ -101,6 +105,10 @@ class LibrarySystemTest {
         assertNotNull(history.getReturnedOn());
         System.out.println("Return Book ");
         System.out.println(history.toString());
+
+        assertEquals(2, librarySystem.getTransactions().size());
+        Transaction transaction =librarySystem.getTransactions().get(1);
+        assertEquals(transaction.getType(), TransactionType.RETURN);
 
     }
 
@@ -147,6 +155,11 @@ class LibrarySystemTest {
         ItemHistory history =user.getBorrowingDetails(searchedItem.getItemId());
         assertNotNull(history);
         assertNull(history.getReturnedOn());
+
+        assertEquals(2, librarySystem.getTransactions().size());
+        Transaction transaction =librarySystem.getTransactions().get(1);
+        assertEquals(transaction.getType(), TransactionType.RENEWAL);
+
         System.out.println("Renew Book ");
         System.out.println(history.toString());
 

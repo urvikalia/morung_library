@@ -1,21 +1,27 @@
 package org.morung.library.models;
 
+import java.time.LocalDate;
+import java.util.concurrent.atomic.AtomicLong;
+
 public class Transaction   {
 
+    private static final AtomicLong transactionIdGenerator = new AtomicLong(1);
+
+    private long id;
     private TransactionType type;
-    private Book book;
-    private User borrower;
+    private LocalDate date;
+    private long userId;
+    private long itemId;
 
-    public Transaction(TransactionType type, Book book, User borrower) {
+    public Transaction(TransactionType type, long userId, long itemId) {
+        this.id = transactionIdGenerator.getAndIncrement();
         this.type = type;
-        this.book = book;
-        this.borrower = borrower;
+        this.date = LocalDate.now();
+        this.userId = userId;
+        this.itemId = itemId;
     }
 
-    public Transaction(String type, Book book, User borrower) {
-        this.type = TransactionType.valueOf(type);
-        this.book = book;
-        this.borrower = borrower;
+    public TransactionType getType() {
+        return type;
     }
-    
 }
