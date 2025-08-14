@@ -80,4 +80,15 @@ public abstract class LibraryItem {
         this.genre = new ArrayList<>();
     }
 
+    public LibraryItem(String ISBN, String title, String author) {
+        this.itemId = itemIdGenerator.getAndIncrement();
+        this.ISBN = ISBN;
+        this.title = title;
+        this.author = author;
+        this.genre = new ArrayList<>();
+    }
+
+
+
+
 }

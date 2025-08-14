@@ -1,6 +1,7 @@
 package org.morung.library.models;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Book extends LibraryItem implements Renewable,Borrowable{
 
@@ -10,6 +11,11 @@ public class Book extends LibraryItem implements Renewable,Borrowable{
         MAX_LOAN_PERIOD = 10;
 
     }
+    public Book(String ISBN, String title, String author) {
+        super(ISBN, title, author);
+        MAX_LOAN_PERIOD = 10;
+    }
+
 
     @Override
     public String toString() {
